@@ -60,15 +60,13 @@ You can install Postman via this website: https://www.postman.com/downloads/
 
 ## Mandatory Checklists (Subscriber)
 -   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
--   **STAGE 1: Implement models**
+-   **STAGE 1: Implement models and repositories**
     -   [ ] Commit: `Create Notification model struct.`
     -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
--   **STAGE 2: Implement repositories**
     -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [ ] Commit: `Implement add function in Notification repository.`
     -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -79,7 +77,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [ ] Commit: `Implement receive function in Notification controller.`
     -   [ ] Commit: `Implement list_messages function in Notification service.`
     -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-3" questions in this README.
+    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -87,8 +85,14 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. We use a RwLock instead of a Mutex in this case because an
+RwLock is can handle multiple simultaneous reads, whereas a Mutex only allows one 
+thread to access a variable at a time. Since the Notifications vector will be frequently accessed for 
+reading by multiple threads concurrently, but rarely modified, an RwLock is more suitable.
+2. In Rust, the language enforces strong guarantees around memory safety and thread safety, especially in the context of 
+static variables. Rust's ownership and borrowing system ensures that mutable references (such as those to mutate 
+static variables) are handled safely to prevent data races and other concurrency/threading issues.
 
 #### Reflection Subscriber-2
 
 #### Reflection Subscriber-3
->>>>>>> 8714703 (Initial commit.)
