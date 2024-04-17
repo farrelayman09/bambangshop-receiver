@@ -85,13 +85,13 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
-1. We use a RwLock instead of a Mutex in this case because an
-RwLock is can handle multiple simultaneous reads, whereas a Mutex only allows one 
-thread to access a variable at a time. Since the Notifications vector will be frequently accessed for 
-reading by multiple threads concurrently, but rarely modified, an RwLock is more suitable.
-2. In Rust, the language enforces strong guarantees around memory safety and thread safety, especially in the context of 
-static variables. Rust's ownership and borrowing system ensures that mutable references (such as those to mutate 
-static variables) are handled safely to prevent data races and other concurrency/threading issues.
+1. We use RwLock instead of Mutex because RwLock allows us to read multiple things simultaneously, whereas Mutex
+only allows one thread to access a variable at a time. Since the Notifications vector will be frequently accessed 
+for reading by multiple threads concurrently, but rarely modified, a RwLock is more suitable.
+2. In Rust, the language enforces strong guarantees around memory safety and thread safety, 
+especially in the context of static variables. Rust's ownership and borrowing system makes sure 
+that mutable references (such as those to mutate static variables) are handled safely to 
+    prevent data races and other concurrency issues therefore keeping thread safety and maintainability.
 
 #### Reflection Subscriber-2
 
