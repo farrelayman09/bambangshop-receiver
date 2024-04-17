@@ -94,5 +94,10 @@ that mutable references (such as those to mutate static variables) are handled s
     prevent data races and other concurrency issues therefore keeping thread safety and maintainability.
 
 #### Reflection Subscriber-2
-
-#### Reflection Subscriber-3
+1. Yes I have. From what Ive found on Rust and Lib.rs documentation, src/libs.rs serves as 
+the main entry point for our Rust library crate. This is where we declare our modules and functionalities needed to run our application
+2. Yes, because the Observer Pattern is designed in a way that adheres to Open-Closed principle (extend not modify). Therefore it will 
+be easier to add new Observer types. Meanwhile, in the case of instantiating more than one main app, I believe it would be harder because
+we have to take into account the synchronization and state of it all.
+3. I have yet to make my own tests or enhance documentation on Postman collection. But theoretically it would be very
+helpful because Postman Collection can assist us in verifying whether the program sends a response that is meets our expectations or whether it doesnt.
